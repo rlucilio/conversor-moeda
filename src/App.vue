@@ -1,28 +1,59 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section class="container">
+      <header class="header">
+        <h1 class="header__text">Conversor de moedas</h1>
+      </header>
+      <main class="cards">
+        <Converter class="card" :from="'USD'" :to="'BRL'" />
+        <Converter class="card" :from="'JPY'" :to="'BRL'" />
+        <Converter class="card" :from="'BGN'" :to="'BRL'" />
+        <Converter class="card" :from="'CZK'" :to="'BRL'" />
+        <Converter class="card" :from="'DKK'" :to="'BRL'" />
+      </main>
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Converter from "./components/Converter.vue";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { Converter },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body,
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 15px;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  margin: 15px;
+}
+
+.header__text {
+  font-weight: 400;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
