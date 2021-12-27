@@ -47,25 +47,25 @@ export default {
     },
   },
   watch: {
-    // result: [
-    //   "watchResult",
-    //   function () {
-    //     console.log("watch função");
-    //   },
-    // ],
+    // // result: [
+    // //   "watchResult",
+    // //   function () {
+    // //     console.log("watch função");
+    // //   },
+    // // ],
 
-    result(value) {
-      console.log("Watch metódo");
-      console.log("Valor Antigo", this.result.value);
-      console.log("Novo Valor", value.value);
-    },
-
-    // result: {
-    //   handler() {
-    //     console.log("Watch em uma unica propriedade");
-    //   },
-    //   deep: true,
+    // result(value) {
+    //   console.log("Watch metódo");
+    //   console.log("Valor Antigo", this.result.value);
+    //   console.log("Novo Valor", value.value);
     // },
+
+    result: {
+      handler() {
+        console.log("Watch em uma unica propriedade");
+      },
+      deep: true,
+    },
   },
   computed: {
     resultFmt() {
@@ -78,6 +78,7 @@ export default {
   },
   methods: {
     async convert() {
+      this.$nextTick;
       if (this.valueConvert) {
         const url = `https://free.currconv.com/api/v7/convert?q=${this.from}_${this.to}&compact=ultra&apiKey=75ff32c7841aeb5bd3f3`;
         const request = await fetch(url);
